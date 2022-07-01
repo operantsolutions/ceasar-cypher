@@ -1,7 +1,7 @@
 def ceasar_cypher(string, num)
   dict = {}
   ("a".."z").each_with_index do |char, index|
-  dict[char] = index+1
+    dict[char] = index+1
   end
   array = string.split("")
   array.reduce("") do |result, char|
