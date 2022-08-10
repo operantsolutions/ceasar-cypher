@@ -5,19 +5,23 @@ def ceasar_cypher(string, num)
   end
   array = string.split("")
   array.reduce("") do |result, char|
-    char.upcase == char ? up = true : up = false
-    value = dict[char.downcase]
-    new_value = value + num
-    if new_value < 1
-      new_value +=  26
-    elsif new_value > 26
-      new_value -= 26
+    unless ("A".."Z").include?(char.upcase)
+      result = result + char
     else
-    end
-    if up == true
-      result = result+"#{dict.key(new_value).upcase}"
-    else 
-      result = result+"#{dict.key(new_value)}"
+      char.upcase == char ? up = true : up = false
+      value = dict[char.downcase]
+      new_value = value + num
+      if new_value < 1
+        new_value +=  26
+      elsif new_value > 26
+        new_value -= 26
+      else
+      end
+      if up == true
+        result = result+"#{dict.key(new_value).upcase}"
+      else 
+        result = result+"#{dict.key(new_value)}"
+      end
     end
   end
 end
